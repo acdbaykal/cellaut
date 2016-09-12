@@ -1,5 +1,4 @@
 import gulp from "gulp";
-import path from "path";
 import babel from "gulp-babel";
 import mocha from "gulp-mocha";
 import {log} from "gulp-util";
