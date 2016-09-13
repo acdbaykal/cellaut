@@ -2,12 +2,14 @@ import gulp from "gulp";
 import babel from "gulp-babel";
 import mocha from "gulp-mocha";
 import {log} from "gulp-util";
+import del from "del";
 
 const dest = "dist";
 const js_src=["src/**/*.js"];
 const js_test_src = ["src/**/*.test.js"];
 
 gulp.task("build:js", function(){
+  del(dest);
   return gulp.src(js_src)
     .pipe(babel().on("error", log))
     .pipe(gulp.dest(dest+"/"));

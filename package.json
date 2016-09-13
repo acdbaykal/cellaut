@@ -4,7 +4,7 @@
   "description": "a framework for cellular automata",
   "main": "dist/index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "gulp test:js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
     "babel-preset-es2015": "^6.14.0",
     "babel-root-import": "^4.1.1",
     "chai": "^3.5.0",
+    "del": "^2.2.2",
     "eslint": "^3.5.0",
     "eslint-plugin-mocha": "^4.5.1",
     "gulp": "github:gulpjs/gulp#4.0",
