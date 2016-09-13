@@ -33,14 +33,16 @@ function CellAutArray(rule_map, size_or_row = 100){
       for(let j = 0; j < row_size; j++){
         const value  = (() => {
           if(j === 0){
-            const center_top = last_row[0];
-            const right_top = last_row[1];
-            return rule_map.getValue(center_top, right_top);
+            const left_top = last_row[0];
+            const center_top = last_row[1];
+            const right_top = last_row[2];
+            return rule_map.getValue(left_top, center_top, right_top);
           }
           else if(j === row_size - 1){
-            const left_top = last_row[j];
+            const left_top = last_row[j-2];
             const center_top = last_row[j-1];
-            return rule_map.getValue(left_top, center_top);
+            const right_top = last_row[j];
+            return rule_map.getValue(left_top, center_top, right_top);
           }
           const left_top = last_row[j-1];
           const center_top = last_row[j];
