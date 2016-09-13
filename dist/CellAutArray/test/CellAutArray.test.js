@@ -63,7 +63,8 @@ describe("CellAutArray", function () {
       cell_aut_arr.generate(2);
       (0, _chai.expect)(cell_aut_arr.getRowCount()).to.be.equal(3);
       var state = cell_aut_arr.getState();
-      var expected = [init_row, [false, true, false, false, false], [true, false, false, false, false]];
+      var expected = [init_row, //[true, false, true, false, false]
+      [true, true, false, false, false], [false, false, false, false, false]];
 
       (0, _chai.expect)(state).to.deep.equal(expected);
     });

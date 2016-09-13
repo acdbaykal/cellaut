@@ -48,13 +48,15 @@ function CellAutArray(rule_map) {
       var _loop2 = function _loop2(j) {
         var value = function () {
           if (j === 0) {
-            var _center_top = last_row[0];
-            var _right_top = last_row[1];
-            return rule_map.getValue(_center_top, _right_top);
+            var _left_top = last_row[0];
+            var _center_top = last_row[1];
+            var _right_top = last_row[2];
+            return rule_map.getValue(_left_top, _center_top, _right_top);
           } else if (j === row_size - 1) {
-            var _left_top = last_row[j];
+            var _left_top2 = last_row[j - 2];
             var _center_top2 = last_row[j - 1];
-            return rule_map.getValue(_left_top, _center_top2);
+            var _right_top2 = last_row[j];
+            return rule_map.getValue(_left_top2, _center_top2, _right_top2);
           }
           var left_top = last_row[j - 1];
           var center_top = last_row[j];
