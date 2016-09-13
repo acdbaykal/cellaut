@@ -4,7 +4,7 @@ import mocha from "gulp-mocha";
 import {log} from "gulp-util";
 
 const dest = "dist";
-const js_src=["src/**/.js"];
+const js_src=["src/**/*.js"];
 const js_test_src = ["src/**/*.test.js"];
 
 gulp.task("build:js", function(){
