@@ -11,9 +11,77 @@ describe("RuleMap", function(){
 
       expect(construct).to.not.throw();
     });
+
+    it("should accept a rule number (0 - 255)", function(){
+      let map = RuleMap(109);
+      expect(
+        map.getValue(true, true, true)
+      ).to.be.equal(false);
+
+      expect(
+        map.getValue(true, true, false)
+      ).to.be.equal(true);
+
+      expect(
+        map.getValue(true, false, true)
+      ).to.be.equal(true);
+
+      expect(
+        map.getValue(true, false, false)
+      ).to.be.equal(false);
+
+      expect(
+        map.getValue(false, true, true)
+      ).to.be.equal(true);
+
+      expect(
+        map.getValue(false, true, false)
+      ).to.be.equal(true);
+
+      expect(
+        map.getValue(false, false, true)
+      ).to.be.equal(false);
+
+      expect(
+        map.getValue(false, false, false)
+      ).to.be.equal(true);
+
+      map = RuleMap(254);
+      expect(
+        map.getValue(true, true, true)
+      ).to.be.equal(true);
+
+      expect(
+        map.getValue(true, true, false)
+      ).to.be.equal(true);
+
+      expect(
+        map.getValue(true, false, true)
+      ).to.be.equal(true);
+
+      expect(
+        map.getValue(true, false, false)
+      ).to.be.equal(true);
+
+      expect(
+        map.getValue(false, true, true)
+      ).to.be.equal(true);
+
+      expect(
+        map.getValue(false, true, false)
+      ).to.be.equal(true);
+
+      expect(
+        map.getValue(false, false, true)
+      ).to.be.equal(true);
+
+      expect(
+        map.getValue(false, false, false)
+      ).to.be.equal(false);
+    });
   });
 
-  describe("addRule", function(){
+  describe("setRule", function(){
     let rule_tree;
 
     beforeEach(function(){
@@ -21,22 +89,13 @@ describe("RuleMap", function(){
     });
 
     it("should have the function", function(){
-      expect(rule_tree).to.include.keys("addRule");
+      expect(rule_tree).to.include.keys("setRule");
     });
 
     it("should allow four boolean parameters and return a new RuleMap", function(){
       let result;
       expect(() => {
-        result = rule_tree.addRule(true, true, true, true);
-      }).not.to.throw();
-
-      expect(result).not.to.equal(rule_tree);
-    });
-
-    it("should allow three boolean parameters and return a new RuleMap", function(){
-      let result;
-      expect(() => {
-        result = rule_tree.addRule(true, true, true);
+        result = rule_tree.setRule(true, true, true, true);
       }).not.to.throw();
 
       expect(result).not.to.equal(rule_tree);
@@ -44,24 +103,17 @@ describe("RuleMap", function(){
   });
 
   describe("getValue", function(){
-    let rule_tree;
-
-    beforeEach(function(){
-      rule_tree = RuleMap().
-                  addRule(true, true, true, true).
-                  addRule(true, true, false, false).
-                  addRule(true, true, true).
-                  addRule(true, false, false)
-      ;
-    });
+    const rule_tree = (
+      RuleMap()
+      .setRule(true, true, true, true)
+      .setRule(true, true, false, false)
+    );
 
     it("should have the function", function(){
       expect(rule_tree).to.include.keys("getValue");
     });
 
-    it("should allow four two to three boolean parameters and return the value for this rule", function(){
-      expect(rule_tree.getValue(true, true)).to.equal(true);
-      expect(rule_tree.getValue(true, false)).to.equal(false);
+    it("should take three boolean parameters and return the value for this rule", function(){
       expect(rule_tree.getValue(true, true, true)).to.equal(true);
       expect(rule_tree.getValue(true, true, false)).to.equal(false);
     });
