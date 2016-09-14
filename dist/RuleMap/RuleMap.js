@@ -30,7 +30,7 @@ var RuleMap = function RuleMap() {
       if (param instanceof _immutable.Map) {
         return param;
       } else if (typeof param === "number") {
-        var rule_number = Math.round(param) % 256; //cutoff anything larger than 255
+        var rule_number = Math.round(param) % 256; //cut off anything larger than 255
         var result = {};
         var remain = rule_number;
         for (var i = 0; i < 8; i++) {

@@ -35,7 +35,7 @@ const RuleMap = function(){
         return param;
       }
       else if(typeof param === "number"){
-        const rule_number = Math.round(param) % 256; //cutoff anything larger than 255
+        const rule_number = Math.round(param) % 256; //cut off anything larger than 255
         const result = {};
         let remain = rule_number;
         for(let i = 0; i < 8 ; i++){
