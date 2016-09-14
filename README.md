@@ -6,7 +6,7 @@ cellaut includes some esential objects to model and process the cellular automat
 RuleMaps are immutable. They map the state of the three upper neighbours to the resulting state of a cell.
 
 ## CellAutArray
-These are two dimensinal boolean arrays which represent the state of the complete state of the cellular automata. Their constructor requires a RuleMap as a parameter. The second optional parameter is either a one dimensional boolean array or an integer. If an array is given, the CellAutArray will use it as the first row; if an integer is given, it will serve as the length of each row and the first row will be generated randomly.
+These are two dimensinal boolean arrays which represent the complete state of the cellular automata. Their constructor requires a RuleMap as a parameter. The second optional parameter is either a one dimensional boolean array or an integer. If an array is given, the CellAutArray will use it as the first row; if an integer is given, it will serve as the length of each row and the first row will be generated randomly.
 
 CellAutArrays have a **generate** method, which creates new rows accourding to the given rule. It can take the number of new rows as a parameter. If the parameter is left out it will generate a single new row.
 
